@@ -1,6 +1,7 @@
 package com.example.thetourguider;
 
-import android.app.Activity;
+
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,20 +9,18 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 
 import java.util.ArrayList;
 
 public class PlaceAdapter extends ArrayAdapter<Place> {
 
-    private static final String LOG_TAG = PlaceAdapter.class.getSimpleName();
-
-    public PlaceAdapter(Activity context, ArrayList<Place> places){
+    public PlaceAdapter(Context context, ArrayList<Place> places){
         super(context, 0, places);
     }
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(

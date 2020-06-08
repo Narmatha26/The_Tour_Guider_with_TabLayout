@@ -13,7 +13,7 @@ public class AttractionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attractions);
+        setContentView(R.layout.place_list);
 
         ArrayList<Place> places = new ArrayList<>();
         places.add(new Place("Meenakshi Amman Temple","Center of the city"));
