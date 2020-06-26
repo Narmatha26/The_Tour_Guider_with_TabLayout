@@ -1,6 +1,8 @@
 package com.example.thetourguider;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,41 +16,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView attractionsTextView = findViewById(R.id.attractions);
-        attractionsTextView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent attractionsIntent = new Intent(MainActivity.this, AttractionsActivity.class);
-                startActivity(attractionsIntent);
-            }
-        });
+        ViewPager viewPager = findViewById(R.id.viewPager);
 
-        TextView restaurantsTextView = findViewById(R.id.restaurants);
-        restaurantsTextView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent restaurantsIntent = new Intent(MainActivity.this, RestaurantsActivity.class);
-                startActivity(restaurantsIntent);
-            }
-        });
+        SimpleFragmentPagerAdapter fragmentPagerAdapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(),
+                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
 
-        TextView publicPlacesTextView = findViewById(R.id.publicPlaces);
-        publicPlacesTextView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent publicPlacesIntent = new Intent(MainActivity.this, PublicPlacesActivity.class);
-                startActivity(publicPlacesIntent);
-            }
-        });
-
-        TextView eventsTextView = findViewById(R.id.events);
-        eventsTextView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent eventsIntent = new Intent(MainActivity.this, EventsActivity.class);
-                startActivity(eventsIntent);
-            }
-        });
+        viewPager.setAdapter(fragmentPagerAdapter);
 
     }
 }

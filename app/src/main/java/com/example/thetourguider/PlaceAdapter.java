@@ -6,17 +6,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 
 import java.util.ArrayList;
 
 public class PlaceAdapter extends ArrayAdapter<Place> {
 
-    public PlaceAdapter(Context context, ArrayList<Place> places){
+    private int mColorResourceId;
+
+    public PlaceAdapter(Context context, ArrayList<Place> places, int colorResourceId){
         super(context, 0, places);
+        mColorResourceId = colorResourceId;
     }
     @NonNull
     @Override
@@ -34,6 +39,13 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
 
         TextView locationTextView = listItemView.findViewById(R.id.location);
         locationTextView.setText(currentPlace.getLocation());
+
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
+        textContainer.setBackgroundColor(color);
+
+        ImageView imageview = listItemView.findViewById(R.id.image);
+        imageview.setImageResource(currentPlace.getImageResourceId());
 
         return listItemView;
     }

@@ -2,19 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="16dp"
+    android:minHeight="@dimen/list_item_height"
+    android:background="@color/gray_background"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height"
+        android:id="@+id/image" />
+
+    <LinearLayout
+        android:id="@+id/text_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:id="@+id/place"
-        tools:text="Meenakshi Amman Temple" />
+        tools:text="Meenakshi Amman Temple"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="bottom"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:id="@+id/location"
-        tools:text="Center of the city"/>
+        tools:text="Center of the city"
+        android:textSize="18sp"
+        android:gravity="top"
+        android:textColor="#FFFFFF"
+        />
 
+    </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
