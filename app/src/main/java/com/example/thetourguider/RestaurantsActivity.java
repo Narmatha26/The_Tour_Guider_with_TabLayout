@@ -1,11 +1,8 @@
 package com.example.thetourguider;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.ListView;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class RestaurantsActivity extends AppCompatActivity {
 
