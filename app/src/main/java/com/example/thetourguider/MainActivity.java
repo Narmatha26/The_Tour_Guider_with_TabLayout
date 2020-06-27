@@ -1,13 +1,11 @@
 package com.example.thetourguider;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,10 +16,12 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPager viewPager = findViewById(R.id.viewPager);
 
-        SimpleFragmentPagerAdapter fragmentPagerAdapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(),
-                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        CategoryAdapter fragmentPagerAdapter = new CategoryAdapter(this, getSupportFragmentManager());
 
         viewPager.setAdapter(fragmentPagerAdapter);
+
+        TabLayout tabLayout = findViewById(R.id.slidingTabs);
+        tabLayout.setupWithViewPager(viewPager);
 
     }
 }
